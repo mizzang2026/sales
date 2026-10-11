@@ -8,8 +8,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="theme.css" />
+  <link rel="stylesheet" href="/src/styles.css" />
+  <link rel="stylesheet" href="/src/theme.css" />
 </head>
 <body>
   <header class="site-header">
@@ -79,22 +79,23 @@
     <section class="section qna" id="qna">
       <div class="qna-heading">
         <div><div class="section-kicker">Q &amp; A BOARD</div><h2>궁금한 점을<br>남겨주세요.</h2></div>
-        <p>매물에 관한 질문을 자유롭게 남겨주세요.<br>작성 내용은 현재 사용 중인 브라우저에 저장됩니다.</p>
+        <p>회원가입 없이 질문을 남길 수 있습니다.<br>작성한 질문은 관리자 확인 후 공개되며, 비공개 질문은 공개 목록에 표시되지 않습니다.</p>
       </div>
       <div class="qna-layout">
         <form class="qna-form" id="qnaForm">
           <h3>질문 작성</h3>
-          <label>작성자<input name="author" required maxlength="20" placeholder="이름 또는 회사명"></label>
-          <label>질문 제목<input name="title" required maxlength="60" placeholder="질문의 핵심 내용을 입력하세요"></label>
-          <label>질문 내용<textarea name="content" required maxlength="500" rows="5" placeholder="면적, 시설, 입주 일정 등 궁금한 점을 남겨주세요"></textarea></label>
+          <label>작성자<input name="author" required maxlength="20" autocomplete="name" placeholder="이름 또는 회사명"></label>
+          <label>질문 제목<input name="title" required minlength="2" maxlength="60" placeholder="질문의 핵심 내용을 입력하세요"></label>
+          <label>질문 내용<textarea name="content" required minlength="5" maxlength="500" rows="5" placeholder="면적, 시설, 입주 일정 등 궁금한 점을 남겨주세요"></textarea></label>
           <label class="qna-private"><input name="isPrivate" type="checkbox"> 비공개 질문으로 등록</label>
+          <label class="qna-honeypot" aria-hidden="true">웹사이트<input name="website" tabindex="-1" autocomplete="off"></label>
           <button class="btn qna-submit" type="submit">질문 등록하기</button>
           <p class="qna-message" role="status"></p>
         </form>
         <div class="qna-board">
-          <div class="qna-board-head"><h3>질문 목록</h3><span id="qnaCount">0개의 질문</span></div>
+          <div class="qna-board-head"><h3>승인된 질문</h3><span id="qnaCount">0개의 질문</span></div>
           <div class="qna-list" id="qnaList"></div>
-          <div class="qna-empty" id="qnaEmpty"><strong>등록된 질문이 없습니다.</strong><span>첫 번째 질문을 남겨보세요.</span></div>
+          <div class="qna-empty" id="qnaEmpty"><strong>공개된 질문이 없습니다.</strong><span>질문은 관리자 확인 후 공개됩니다.</span></div>
         </div>
       </div>
     </section>
@@ -108,6 +109,6 @@
   <footer><a class="brand" href="#top"><span class="brand-mark">F</span><span>FACTORY<span>ON</span></span></a><p>공장·창고 전문 부동산 컨설팅</p><p class="disclaimer">본 페이지는 매물 소개용 예시이며, 실제 거래 전 현장 및 공부 확인이 필요합니다.</p><small>© 2026 FACTORYON. All rights reserved.</small></footer>
 
   <div class="mobile-cta"><a href="tel:01012345678">전화 상담</a><a href="#contact">문의 남기기</a></div>
-  <script src="script.js"></script>
+  <script type="module" src="/src/main.js"></script>
 </body>
 </html>

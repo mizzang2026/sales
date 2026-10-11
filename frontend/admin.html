@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Q&A 관리자 | FACTORYON</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/admin.css">
+</head>
+<body>
+  <main class="admin-shell">
+    <header class="admin-header">
+      <div><span>FACTORYON</span><h1>Q&amp;A 승인 관리</h1></div>
+      <div class="admin-actions"><a href="index.html#qna">게시판 보기</a><button id="logoutButton" type="button" hidden>로그아웃</button></div>
+    </header>
+
+    <section class="login-card" id="loginPanel">
+      <h2>관리자 로그인</h2>
+      <p>Supabase에 등록한 관리자 이메일과 비밀번호를 입력하세요.</p>
+      <form id="loginForm">
+        <label>이메일<input name="email" type="email" required autocomplete="username"></label>
+        <label>비밀번호<input name="password" type="password" required autocomplete="current-password"></label>
+        <button type="submit">로그인</button>
+      </form>
+      <p class="admin-message" id="loginMessage" role="status"></p>
+    </section>
+
+    <section id="dashboard" hidden>
+      <nav class="filters" aria-label="질문 상태 필터">
+        <button type="button" data-status="pending" class="active">승인 대기</button>
+        <button type="button" data-status="approved">승인 완료</button>
+        <button type="button" data-status="rejected">거절</button>
+        <button type="button" data-status="all">전체</button>
+      </nav>
+      <p class="admin-message" id="dashboardMessage" role="status"></p>
+      <div class="question-list" id="adminQuestionList"></div>
+      <div class="empty" id="adminEmpty">해당 질문이 없습니다.</div>
+    </section>
+  </main>
+  <script type="module" src="/src/admin.js"></script>
+</body>
+</html>

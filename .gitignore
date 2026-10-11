@@ -2,3 +2,9 @@
 site-checkout/
 preview.png
 *.tar.gz
+frontend/node_modules/
+frontend/dist/
+frontend/.env.local
+frontend/.env.*.local
+frontend/*.env
+!frontend/.env.example
